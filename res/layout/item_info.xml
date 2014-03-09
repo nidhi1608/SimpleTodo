@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dip" >
+
+    <CheckBox
+        android:id="@+id/chkItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textColor="#B40404" />
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/chkItem"
+        android:layout_marginLeft= "10dp"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="22sp"
+        android:textColor="#ff000000" />
+    
+    <TextView
+        android:id="@+id/tvDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-thin"
+        android:layout_alignParentRight="true"
+        android:textColor="#ff777777" />
+
+</RelativeLayout>

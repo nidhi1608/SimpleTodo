@@ -3,41 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:fontFamily="sans-serif-light"
     tools:context=".TodoActivity" >
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/lvItems"
+        android:groupIndicator="@null"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_above="@+id/etNewItem"
+        android:layout_alignParentTop="true">
+    </ExpandableListView>
 
-    </ListView>
-
-    <EditText
-        android:id="@+id/etNewItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lvItems"
-        android:layout_below="@+id/lvItems"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="@string/newItem_text" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
+    <ImageButton
         android:id="@+id/btnAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/etNewItem"
-        android:layout_alignBottom="@+id/etNewItem"
-        android:layout_toRightOf="@+id/etNewItem"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="12dp"
         android:onClick="addTodoItem"
+        android:fontFamily="sans-serif-light"
+        android:src="@drawable/additem"
+        android:background="@null"
+    	android:contentDescription="@drawable/additem"
         android:text="@string/addbutton_text" />
+
+    <EditText
+        android:id="@+id/etNewItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnAddItem"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/newItem_text"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:textSize="22sp" >
+    </EditText>
 
 </RelativeLayout>

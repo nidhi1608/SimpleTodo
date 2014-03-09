@@ -6,38 +6,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:focusable="true"  
+    android:focusableInTouchMode="true"
     tools:context=".EditItemActivity" >
 
-    <TextView
-        android:id="@+id/tvEditItem"
+    <EditText
+        android:id="@+id/etDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="sans-serif-thin"
+        android:hint="@string/text_due_date"
+        android:inputType="datetime"
+        android:paddingLeft="12dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etTaskName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/editItem_label"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:width="200dp" />
-
-    <EditText
-        android:id="@+id/etEditItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvEditItem"
-        android:layout_below="@+id/tvEditItem"
-        android:layout_marginTop="20dp"
-        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/etDueDate"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="28sp"
+        android:gravity="top"
         android:inputType="textMultiLine" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etEditItem"
-        android:layout_below="@+id/etEditItem"
-        android:layout_marginTop="18dp"
-        android:onClick="editTodoItem"
-        android:text="@string/save_button" />
 
 </RelativeLayout>
