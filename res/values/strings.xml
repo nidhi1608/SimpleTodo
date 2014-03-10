@@ -12,5 +12,7 @@
     <string name="text_due_date">Set due date</string>
     <string name="sort_alphabetically">Sort Alphabetically</string>
     <string name="sort_byduedate">Sort By Due Date</string>
-
+    <string name="share">Share</string>
+    <string name="share_task">Share Task</string>
+    <string name="share_task_list">Share Task List</string>
 </resources>

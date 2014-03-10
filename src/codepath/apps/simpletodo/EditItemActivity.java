@@ -7,8 +7,10 @@ import java.util.UUID;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -70,7 +72,22 @@ public class EditItemActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.edit_item, menu);
-		return true;
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.shareItem:
+			commitChanges();
+			Intent shareIntent = new Intent(Intent.ACTION_SEND);
+			shareIntent.setType("text/plain");
+			shareIntent.putExtra(Intent.EXTRA_TEXT, mItem.toShareIntentString());
+			startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.share_task)));
+			return true;
+		default:
+            return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	@Override

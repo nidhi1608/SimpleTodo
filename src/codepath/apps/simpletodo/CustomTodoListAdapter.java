@@ -29,7 +29,7 @@ public class CustomTodoListAdapter extends BaseExpandableListAdapter {
 	private final ArrayList<TodoElement> mCompletedListItems;
 	private ExpandableListView mListView;
 	private final Activity mActivity;
-	private final SimpleDateFormat DF = new SimpleDateFormat("EEE, dd.MM.yyyy", java.util.Locale.getDefault());
+	public static final SimpleDateFormat DF = new SimpleDateFormat("EEE, dd.MM.yyyy", java.util.Locale.getDefault());
 
 	public int selectedIndex;
 	private static final int ALTERNATE_COLOR = Color.parseColor("#fbfbfb");
@@ -55,9 +55,21 @@ public class CustomTodoListAdapter extends BaseExpandableListAdapter {
 	}
 	
 	public void saveAllItems() {
+		DataStore.putAllItems(mActivity, getAllItems());
+	}
+	
+	public ArrayList<TodoElement> getAllItems() {
 		final ArrayList<TodoElement> items = new ArrayList<TodoElement>(mListItems);
 		items.addAll(mCompletedListItems);
-		DataStore.putAllItems(mActivity, items);
+		return items;
+	}
+	
+	public ArrayList<TodoElement> getIncompleteItems() {
+		return mListItems;
+	}
+	
+	public ArrayList<TodoElement> getCompletedItems() {
+		return mCompletedListItems;
 	}
 
 	public void addItem(final TodoElement todoElement) {

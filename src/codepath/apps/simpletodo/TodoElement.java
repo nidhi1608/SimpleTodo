@@ -1,5 +1,6 @@
 package codepath.apps.simpletodo;
 
+import java.util.Date;
 import java.util.UUID;
 
 import org.json.JSONException;
@@ -73,6 +74,17 @@ public class TodoElement {
 			Log.d(TAG, e.toString());
 			return null;
 		}
+	}
+	
+	private static final String checkmark = " [" + Character.toString((char)215) + "] ";
+	
+	public String toShareIntentString() {
+		final StringBuilder builder = new StringBuilder();
+		builder.append(" ");
+		builder.append(mCompleted ? checkmark : " [  ] ");
+		builder.append(" ");
+		builder.append(mTaskName).append(", due: ").append(CustomTodoListAdapter.DF.format(new Date(mDueDate)));
+		return builder.toString();
 	}
 	
 	public static TodoElement fromJson(final String jsonString) {

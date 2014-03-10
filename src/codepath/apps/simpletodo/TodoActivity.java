@@ -112,6 +112,17 @@ public class TodoActivity extends Activity {
 		case R.id.sortByDueDate:
 			itemsAdapter.sortByDueDate();
 			return true;
+		case R.id.Share:
+			Intent share = new Intent(Intent.ACTION_SEND);
+			share.setType("text/plain");
+			final StringBuilder builder = new StringBuilder();
+			for (final TodoElement element : itemsAdapter.getAllItems()) {
+				builder.append(element.toShareIntentString());
+				builder.append("\n");
+			}
+			share.putExtra(Intent.EXTRA_TEXT, builder.toString());
+			startActivity(Intent.createChooser(share, getResources().getString(R.string.share_task_list)));
+			return true;
 		default:
             return super.onOptionsItemSelected(item);
 		}

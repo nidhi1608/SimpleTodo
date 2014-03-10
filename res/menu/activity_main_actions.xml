@@ -8,6 +8,9 @@
         android:title="@string/sort_byduedate" 
         android:showAsAction="never">
     </item>
-    
-
+    <item android:id="@+id/Share" 
+        android:title="@string/share" 
+        android:icon="@drawable/ic_action_share"
+      	android:showAsAction="always">
+    </item>
 </menu>
